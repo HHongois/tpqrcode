@@ -15,5 +15,15 @@
 
 
 <ion-content padding>
-
+  <ion-item>
+    <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrcode.qrData">
+    </ion-input>
+  </ion-item>
+  <button ion-button full icon-left (click)="scan()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scan Code</button>
+ 
+  <ion-card *ngIf="qrcode.scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ qrcode.scannedCode }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

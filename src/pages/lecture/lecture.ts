@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { QrCodeProvider } from '../../providers/qr-code/qr-code';
 
 /**
  * Generated class for the LecturePage page.
@@ -15,9 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LecturePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public qrcode : QrCodeProvider) {
   }
-
+  public scan() {
+    this.qrcode.scanCode();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LecturePage');
   }

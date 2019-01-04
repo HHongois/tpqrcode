@@ -1,4 +1,4 @@
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { QrCodeProvider } from './../../providers/qr-code/qr-code';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -7,22 +7,15 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  qrData = null;
-  createdCode = null;
-  scannedCode = null;
  
-  constructor(public navCtrl: NavController,private barcodeScanner: BarcodeScanner) {}
- 
-  createCode() {
-    this.createdCode = this.qrData;
+  constructor(public navCtrl: NavController,public qrcode : QrCodeProvider) {
+   
   }
  
-  scanCode() {
-    this.barcodeScanner.scan().then(barcodeData => {
-      this.scannedCode = barcodeData.text;
-    }, (err) => {
-        console.log('Error: ', err);
-    });
+  public create() {
+    this.qrcode.createCode();
   }
+ 
+
 
 }
