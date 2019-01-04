@@ -29,6 +29,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    NgxQRCodeModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,7 +44,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    QrCodeProvider
+    QrCodeProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}
