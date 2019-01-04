@@ -7,6 +7,7 @@ import QRCode from 'qrcode'
 
 //library for social-sharing
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { SauvegardeProvider } from '../../providers/sauvegarde/sauvegarde';
 /**
  * Generated class for the GenerationPage page.
  *
@@ -23,13 +24,15 @@ export class GenerationPage {
   msg: any;
   generated: string = '';
   inputCode = '';
-  constructor(public navCtrl: NavController, public qrcode: QrCodeProvider, private socialSharing: SocialSharing) {
+  constructor(public navCtrl: NavController, public qrcode: QrCodeProvider, private socialSharing: SocialSharing, public sauvegarde: SauvegardeProvider) {
     this.msg = null;
+   
   }
 
   public create() {
      QRCode.toDataURL(this.inputCode, { errorCorrectionLevel: 'H' }, (err, url) => this.generated = url);
      this.msg = this.generated;
+     this.sauvegarde.addCode(this.inputCode);
   }
 
   regularShare(){

@@ -13,5 +13,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
+    <ion-list>
+        <div ion-item *ngFor="let item of data" >
+          {{item}}
+          
+        </div>
+      </ion-list>
 </ion-content>

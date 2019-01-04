@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SauvegardeProvider } from '../../providers/sauvegarde/sauvegarde';
 
 /**
  * Generated class for the HistoriquePage page.
@@ -15,11 +16,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HistoriquePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public data: any = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public store : SauvegardeProvider) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HistoriquePage');
+  public ionViewDidEnter(){
+    
+    this.store.getSauvegarde()
+    .then(
+      (result) => {
+        console.log(result);
+        this.data = result
+      });
+  
   }
 
 }
