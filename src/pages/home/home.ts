@@ -1,4 +1,3 @@
-import { QrCodeProvider } from './../../providers/qr-code/qr-code';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -8,14 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
  
-  constructor(public navCtrl: NavController,public qrcode : QrCodeProvider) {
+  constructor(public navCtrl: NavController) {
    
   }
- 
-  public create() {
-    this.qrcode.createCode();
-  }
- 
-
-
 }
